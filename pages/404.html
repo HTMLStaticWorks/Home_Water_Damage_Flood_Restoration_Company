@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found | AquaRestore</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 dark:bg-secondary-900 dark:text-gray-200 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Header (Simplified) -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-gray-800" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <span class="font-heading font-bold text-2xl tracking-tight text-secondary-900 dark:text-white">Aqua<span class="text-primary-600">Restore</span></span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden xl:flex items-center gap-8">
+                    <a href="../index.html" class="text-primary-600 font-medium transition-colors hover:text-primary-500">Home</a>
+                    <a href="home-2.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Home 2</a>
+                    <a href="about.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">About</a>
+                    <a href="services.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Services</a>
+                    <a href="insurance.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Insurance</a>
+                    <a href="contact.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Contact</a>
+                    <a href="dashboard.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a>
+                </nav>
+
+                <!-- Right Actions (Desktop only) -->
+                <div class="hidden xl:flex items-center gap-4">
+                    <button id="themeToggle" class="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="rtlToggle" class="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL/LTR" title="Switch to RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                    <a href="signup.html" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-primary-600/30">Sign Up</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="xl:hidden p-2 text-gray-600 dark:text-gray-300">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden xl:hidden bg-white dark:bg-secondary-900 border-t border-gray-100 dark:border-gray-800 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1 shadow-xl">
+                <a href="../index.html" class="block px-3 py-3 text-primary-600 font-medium bg-primary-50 dark:bg-primary-900/20 rounded-lg">Home</a>
+                <a href="home-2.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Home 2</a>
+                <a href="about.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">About</a>
+                <a href="services.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Services</a>
+                <a href="insurance.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Insurance</a>
+                <a href="contact.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Dashboard</a>
+
+                <!-- Mobile Utility Row: Theme + RTL + Login -->
+                <div class="border-t border-gray-100 dark:border-gray-800 mt-2 pt-3">
+                    <div class="flex items-center gap-3 px-3 pb-2">
+                        <!-- Theme Toggle (mobile) -->
+                        <button id="themeToggleMobile" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-1" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                            <span class="text-sm">Theme</span>
+                        </button>
+                        <!-- RTL Toggle (mobile) -->
+                        <button id="rtlToggleMobile" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-1" aria-label="Toggle RTL/LTR">
+                            <i class="fa-solid fa-right-left"></i>
+                            <span class="text-sm">RTL</span>
+                        </button>
+                        <!-- Signup (mobile) -->
+                        <a href="signup.html" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-medium transition-colors flex-1 shadow-md shadow-primary-600/20">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span class="text-sm">Sign Up</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 404 Content -->
+    <main class="flex-1 flex items-center justify-center pt-20 pb-12 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&q=80&w=2000" alt="Water Background" class="w-full h-full object-cover opacity-10 dark:opacity-5 mix-blend-luminosity">
+        </div>
+        
+        <div class="max-w-2xl mx-auto px-4 text-center relative z-10">
+            <div class="text-9xl font-heading font-bold text-primary-600 mb-4 opacity-80">
+                404
+            </div>
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-secondary-900 dark:text-white mb-6">Looks Like This Page Got Waterlogged.</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400 mb-10">The page you're looking for has been moved, deleted, or possibly swept away in a flood. Let's get you back to dry land.</p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="../index.html" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg flex items-center gap-2 w-full sm:w-auto justify-center">
+                    <i class="fa-solid fa-house"></i> Back to Home
+                </a>
+                <a href="contact.html" class="bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-secondary-700 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow flex items-center gap-2 w-full sm:w-auto justify-center">
+                    <i class="fa-solid fa-life-ring"></i> Get Help
+                </a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

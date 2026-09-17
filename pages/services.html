@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | AquaRestore</title>
+    <meta name="description" content="Professional water extraction, structural drying, and mold prevention services. We handle your restoration from start to finish.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+</head>
+<body class="font-sans text-gray-800 bg-white dark:bg-secondary-900 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-gray-800" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <span class="font-heading font-bold text-2xl tracking-tight text-secondary-900 dark:text-white">Aqua<span class="text-primary-600">Restore</span></span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden xl:flex items-center gap-8">
+                    <a href="../index.html" class="text-primary-600 font-medium transition-colors hover:text-primary-500">Home</a>
+                    <a href="home-2.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Home 2</a>
+                    <a href="about.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">About</a>
+                    <a href="services.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Services</a>
+                    <a href="insurance.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Insurance</a>
+                    <a href="contact.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Contact</a>
+                    <a href="dashboard.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a>
+                </nav>
+
+                <!-- Right Actions (Desktop only) -->
+                <div class="hidden xl:flex items-center gap-4">
+                    <button id="themeToggle" class="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="rtlToggle" class="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL/LTR" title="Switch to RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                    <a href="signup.html" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-primary-600/30">Sign Up</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="xl:hidden p-2 text-gray-600 dark:text-gray-300">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden xl:hidden bg-white dark:bg-secondary-900 border-t border-gray-100 dark:border-gray-800 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1 shadow-xl">
+                <a href="../index.html" class="block px-3 py-3 text-primary-600 font-medium bg-primary-50 dark:bg-primary-900/20 rounded-lg">Home</a>
+                <a href="home-2.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Home 2</a>
+                <a href="about.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">About</a>
+                <a href="services.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Services</a>
+                <a href="insurance.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Insurance</a>
+                <a href="contact.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Dashboard</a>
+
+                <!-- Mobile Utility Row: Theme + RTL + Login -->
+                <div class="border-t border-gray-100 dark:border-gray-800 mt-2 pt-3">
+                    <div class="flex items-center gap-3 px-3 pb-2">
+                        <!-- Theme Toggle (mobile) -->
+                        <button id="themeToggleMobile" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-1" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                            <span class="text-sm">Theme</span>
+                        </button>
+                        <!-- RTL Toggle (mobile) -->
+                        <button id="rtlToggleMobile" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-1" aria-label="Toggle RTL/LTR">
+                            <i class="fa-solid fa-right-left"></i>
+                            <span class="text-sm">RTL</span>
+                        </button>
+                        <!-- Signup (mobile) -->
+                        <a href="signup.html" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-medium transition-colors flex-1 shadow-md shadow-primary-600/20">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span class="text-sm">Sign Up</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Services Hero -->
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-secondary-900 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=2000" alt="Water Extraction Service" class="w-full h-full object-cover opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 to-transparent"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" data-aos="fade-up">
+                <h1 class="text-4xl lg:text-6xl font-heading font-bold text-white mb-6">Our Restoration Services</h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">From immediate extraction to final structural repairs, we handle every phase of water damage recovery.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Water Extraction -->
+        <section class="py-24 bg-white dark:bg-secondary-800 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
+                        <div class="w-16 h-16 rounded-2xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center text-3xl mb-6">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 dark:text-white mb-6">Emergency Water Extraction</h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                            Standing water is your property's worst enemy. It seeps into drywall, ruins flooring, and begins breeding mold within hours. Our rapid extraction process removes the bulk of the water immediately.
+                        </p>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check-circle text-primary-600"></i>
+                                <span class="text-secondary-900 dark:text-white font-medium">Submersible pump systems for deep water</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check-circle text-primary-600"></i>
+                                <span class="text-secondary-900 dark:text-white font-medium">Industrial wet vacuums for carpets and flooring</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check-circle text-primary-600"></i>
+                                <span class="text-secondary-900 dark:text-white font-medium">Immediate damage assessment</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check-circle text-primary-600"></i>
+                                <span class="text-secondary-900 dark:text-white font-medium">Safe disposal of contaminated water</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="lg:w-1/2 order-1 lg:order-2" data-aos="fade-left">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[400px]">
+                            <img src="https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&q=80&w=800" alt="Emergency Water Extraction Pump" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Structural Drying -->
+        <section class="py-24 bg-gray-50 dark:bg-secondary-900 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[400px]">
+                            <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80&w=800" alt="Industrial Air Movers and Dehumidifiers" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <div class="w-16 h-16 rounded-2xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center text-3xl mb-6">
+                            <i class="fa-solid fa-wind"></i>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 dark:text-white mb-6">Advanced Structural Drying</h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                            Once standing water is removed, materials look dry but remain wet inside. We use scientific drying methods to pull moisture out of the structural elements of your property.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="bg-white dark:bg-secondary-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <h4 class="font-bold text-secondary-900 dark:text-white mb-1"><i class="fa-solid fa-fan text-primary-600 mr-2"></i> Air Movers</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">High-velocity fans evaporate moisture from surfaces.</p>
+                            </div>
+                            <div class="bg-white dark:bg-secondary-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <h4 class="font-bold text-secondary-900 dark:text-white mb-1"><i class="fa-solid fa-droplet-slash text-primary-600 mr-2"></i> Dehumidifiers</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Industrial units pull evaporated moisture from the air.</p>
+                            </div>
+                            <div class="bg-white dark:bg-secondary-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <h4 class="font-bold text-secondary-900 dark:text-white mb-1"><i class="fa-solid fa-map-location-dot text-primary-600 mr-2"></i> Moisture Mapping</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Infrared technology to track hidden moisture pockets.</p>
+                            </div>
+                            <div class="bg-white dark:bg-secondary-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                                <h4 class="font-bold text-secondary-900 dark:text-white mb-1"><i class="fa-solid fa-chart-line text-primary-600 mr-2"></i> Progress Reports</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Daily readings to monitor the drying progress.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Mold Prevention -->
+        <section class="py-24 bg-white dark:bg-secondary-800 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
+                        <div class="w-16 h-16 rounded-2xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center text-3xl mb-6">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 dark:text-white mb-6">Mold Prevention & Remediation</h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                            Mold can begin growing within 48 hours of water intrusion. Our mitigation strategy includes proactive antimicrobial treatments to prevent secondary damage and protect your indoor air quality.
+                        </p>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-microscope text-primary-600 mt-1"></i>
+                                <div>
+                                    <span class="text-secondary-900 dark:text-white font-medium block">Mold-Risk Assessment</span>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">Identifying areas susceptible to fungal growth based on moisture levels.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-spray-can text-primary-600 mt-1"></i>
+                                <div>
+                                    <span class="text-secondary-900 dark:text-white font-medium block">Preventive Treatment</span>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">Application of professional-grade antimicrobials to structural framing.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-mask-ventilator text-primary-600 mt-1"></i>
+                                <div>
+                                    <span class="text-secondary-900 dark:text-white font-medium block">Air Quality Controls</span>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">HEPA filtration and negative air machines to remove airborne spores.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="lg:w-1/2 order-1 lg:order-2" data-aos="fade-left">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[400px]">
+                            <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=800" alt="Mold Inspection" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Service CTA -->
+        <section class="relative py-24 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=2000" alt="Restoration Complete" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-secondary-900/80 backdrop-blur-sm"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" data-aos="zoom-in">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Need Immediate Restoration Services?</h2>
+                <p class="text-xl text-gray-300 mb-10">Our certified technicians are on standby in your area.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="tel:18005550199" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold text-xl transition-all shadow-lg flex items-center gap-3 w-full sm:w-auto justify-center">
+                        <i class="fa-solid fa-phone-volume"></i> Dispatch Crew Now
+                    </a>
+                    <a href="contact.html" class="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 px-8 py-4 rounded-xl font-bold text-xl transition-all w-full sm:w-auto justify-center">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+        <!-- Premium Footer -->
+    <footer class="bg-gray-50 dark:bg-secondary-900 text-gray-800 dark:text-white pt-20 pb-10 border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)]" style="background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="space-y-6">
+                    <a href="../index.html" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold text-xl">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <span class="font-heading font-bold text-2xl tracking-tight text-secondary-900 dark:text-white">Aqua<span class="text-primary-500">Restore</span></span>
+                    </a>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Expert water damage restoration, structural drying, and mold prevention. Available 24/7 for immediate emergency dispatch.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-secondary-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-secondary-900 dark:hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-secondary-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-secondary-900 dark:hover:text-white transition-colors">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-secondary-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-secondary-900 dark:hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6 text-secondary-900 dark:text-white">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Home</a></li>
+                        <li><a href="about.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> About Us</a></li>
+                        <li><a href="insurance.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Insurance Process</a></li>
+                        <li><a href="login.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Client Portal</a></li>
+                        <li><a href="contact.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6 text-secondary-900 dark:text-white">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Water Extraction</a></li>
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Structural Drying</a></li>
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Mold Prevention</a></li>
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Sewage Cleanup</a></li>
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Commercial Recovery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6 text-secondary-900 dark:text-white">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-primary-500 mt-1"></i>
+                            <span class="text-gray-600 dark:text-gray-400 text-sm">1234 Restoration Blvd<br>Metro City, MC 90210</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-primary-500"></i>
+                            <a href="mailto:dispatch@aquarestore.com" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm">dispatch@aquarestore.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone-volume text-primary-500"></i>
+                            <a href="tel:18005550199" class="text-xl font-bold font-heading text-secondary-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">1-800-555-0199</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 AquaRestore. All rights reserved.</p>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="#" class="text-gray-500 hover:text-secondary-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-secondary-900 dark:hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-secondary-900 dark:hover:text-white transition-colors">Sitemap</a>
+                </div>
+                <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="text-gray-500 hover:text-secondary-900 dark:hover:text-white transition-colors text-sm flex items-center gap-2" aria-label="Back to Top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+    </script>
+</body>
+</html>

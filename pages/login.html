@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | AquaRestore</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 dark:bg-secondary-900 dark:text-gray-200 transition-colors duration-300 min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Top Controls -->
+    <div class="fixed top-4 right-4 flex items-center gap-3 z-50">
+        <button id="themeToggle" class="w-10 h-10 rounded-full bg-white dark:bg-secondary-800 text-gray-500 shadow-md flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon dark:hidden"></i>
+            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+        </button>
+        <!-- RTL Toggle placeholder -->
+        <button id="rtlToggle" class="w-10 h-10 rounded-full bg-white dark:bg-secondary-800 text-gray-500 shadow-md flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle RTL/LTR" title="Switch to RTL">
+            <i class="fa-solid fa-right-left"></i>
+        </button>
+    </div>
+
+    <!-- Login Container -->
+    <div class="max-w-md w-full bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 p-8 sm:p-10">
+        
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <a href="../index.html" class="inline-flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl bg-primary-600 flex items-center justify-center text-white font-bold text-2xl transition-transform group-hover:scale-105 shadow-lg shadow-primary-500/30">
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
+                <span class="font-heading font-bold text-3xl tracking-tight text-secondary-900 dark:text-white">Aqua<span class="text-primary-600">Restore</span></span>
+            </a>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 font-medium">Client Portal Login</p>
+        </div>
+
+        <!-- Form -->
+        <form class="space-y-5">
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <input type="email" id="email" class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" placeholder="name@example.com">
+                </div>
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <input type="password" id="password" class="w-full pl-11 pr-12 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" placeholder="••••••••">
+                    <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-primary-600 transition-colors">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                    <label for="remember-me" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">
+                        Remember me
+                    </label>
+                </div>
+
+                <div class="text-sm">
+                    <a href="#" class="font-medium text-primary-600 hover:text-primary-500">
+                        Forgot password?
+                    </a>
+                </div>
+            </div>
+
+            <button type="button" onclick="window.location.href='dashboard.html'" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3.5 px-4 rounded-xl transition-colors shadow-lg flex items-center justify-center gap-2">
+                Sign In
+            </button>
+        </form>
+
+        <div class="mt-8">
+            <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-200 dark:border-gray-700"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white dark:bg-secondary-800 text-gray-500">Or continue with</span>
+                </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-2 gap-4">
+                <button class="flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-secondary-900 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-800 transition-colors font-medium text-sm">
+                    <i class="fa-brands fa-google text-red-500"></i> Google
+                </button>
+                <button class="flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-secondary-900 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-800 transition-colors font-medium text-sm">
+                    <i class="fa-brands fa-apple"></i> Apple
+                </button>
+            </div>
+        </div>
+
+        <p class="mt-8 text-center text-sm text-gray-600 dark:text-gray-400">
+            Don't have an account? 
+            <a href="signup.html" class="font-bold text-primary-600 hover:text-primary-500">Sign Up</a>
+        </p>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Password Visibility Toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+
+        if(togglePassword && password) {
+            togglePassword.addEventListener('click', function () {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-eye');
+                icon.classList.toggle('fa-eye-slash');
+            });
+        }
+    </script>
+</body>
+</html>

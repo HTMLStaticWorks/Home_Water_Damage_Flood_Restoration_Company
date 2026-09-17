@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Assistance | AquaRestore</title>
+    <meta name="description" content="Expert insurance claim support for water damage. We provide comprehensive documentation to ensure a smooth claim process.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+</head>
+<body class="font-sans text-gray-800 bg-white dark:bg-secondary-900 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-secondary-900/90 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-gray-800" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <span class="font-heading font-bold text-2xl tracking-tight text-secondary-900 dark:text-white">Aqua<span class="text-primary-600">Restore</span></span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden xl:flex items-center gap-8">
+                    <a href="../index.html" class="text-primary-600 font-medium transition-colors hover:text-primary-500">Home</a>
+                    <a href="home-2.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Home 2</a>
+                    <a href="about.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">About</a>
+                    <a href="services.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Services</a>
+                    <a href="insurance.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Insurance</a>
+                    <a href="contact.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Contact</a>
+                    <a href="dashboard.html" class="text-gray-600 dark:text-gray-300 font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400">Dashboard</a>
+                </nav>
+
+                <!-- Right Actions (Desktop only) -->
+                <div class="hidden xl:flex items-center gap-4">
+                    <button id="themeToggle" class="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="rtlToggle" class="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL/LTR" title="Switch to RTL">
+                        <i class="fa-solid fa-right-left"></i>
+                    </button>
+                    <a href="signup.html" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-primary-600/30">Sign Up</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="xl:hidden p-2 text-gray-600 dark:text-gray-300">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden xl:hidden bg-white dark:bg-secondary-900 border-t border-gray-100 dark:border-gray-800 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1 shadow-xl">
+                <a href="../index.html" class="block px-3 py-3 text-primary-600 font-medium bg-primary-50 dark:bg-primary-900/20 rounded-lg">Home</a>
+                <a href="home-2.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Home 2</a>
+                <a href="about.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">About</a>
+                <a href="services.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Services</a>
+                <a href="insurance.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Insurance</a>
+                <a href="contact.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg">Dashboard</a>
+
+                <!-- Mobile Utility Row: Theme + RTL + Login -->
+                <div class="border-t border-gray-100 dark:border-gray-800 mt-2 pt-3">
+                    <div class="flex items-center gap-3 px-3 pb-2">
+                        <!-- Theme Toggle (mobile) -->
+                        <button id="themeToggleMobile" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-1" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon dark:hidden"></i>
+                            <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                            <span class="text-sm">Theme</span>
+                        </button>
+                        <!-- RTL Toggle (mobile) -->
+                        <button id="rtlToggleMobile" class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-1" aria-label="Toggle RTL/LTR">
+                            <i class="fa-solid fa-right-left"></i>
+                            <span class="text-sm">RTL</span>
+                        </button>
+                        <!-- Signup (mobile) -->
+                        <a href="signup.html" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-medium transition-colors flex-1 shadow-md shadow-primary-600/20">
+                            <i class="fa-solid fa-user-plus"></i>
+                            <span class="text-sm">Sign Up</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Insurance Hero -->
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gray-50 dark:bg-secondary-900 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=2000" alt="Insurance Documents and Pen" class="w-full h-full object-cover opacity-10 dark:opacity-30 mix-blend-luminosity">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-secondary-900 to-transparent"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" data-aos="fade-up">
+                <div class="max-w-3xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-400 border border-primary-200 dark:border-primary-800 mb-6 backdrop-blur-sm text-sm font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-shield-halved"></i> Seamless Claims Process
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-heading font-bold text-secondary-900 dark:text-white mb-6">We Work Directly With Your Insurance.</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-300">Dealing with water damage is stressful enough. Our team handles the documentation, reporting, and direct billing so you can focus on getting your life back to normal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: We Document the Damage -->
+        <section class="py-24 bg-gray-50 dark:bg-secondary-800 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <h2 class="text-primary-600 font-semibold tracking-wide uppercase mb-2">Thorough Documentation</h2>
+                        <h3 class="text-3xl md:text-4xl font-heading font-bold text-secondary-900 dark:text-white mb-6">Evidence-Based Restoration</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                            Insurance companies require proof of loss. We provide unassailable evidence of the damage and our mitigation efforts, ensuring your claim is fully supported.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-camera"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-secondary-900 dark:text-white mb-1">Pre-Mitigation Photos</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">Comprehensive photo evidence taken before we move a single item.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-temperature-arrow-up"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-secondary-900 dark:text-white mb-1">Initial Moisture Readings</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">Digital documentation of saturation levels across affected materials.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-secondary-900 dark:text-white mb-1">Daily Drying Logs</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">A verified record of the daily progress to prove mitigation success.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[500px]">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" alt="Inspector checking data on tablet" class="w-full h-full object-cover">
+                            <div class="absolute bottom-6 -left-6 bg-white dark:bg-secondary-900 p-6 rounded-2xl shadow-xl ml-10 border border-gray-100 dark:border-gray-700 max-w-sm">
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="font-bold text-secondary-900 dark:text-white">Moisture Log</span>
+                                    <span class="text-green-500 text-sm font-bold"><i class="fa-solid fa-arrow-down"></i> Decreasing</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="bg-primary-500 h-2 rounded-full" style="width: 45%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Claim Documentation -->
+        <section class="py-24 bg-white dark:bg-secondary-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold text-secondary-900 dark:text-white mb-6">The Documents We Provide</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">We generate a complete claim packet that insurance adjusters expect, utilizing industry-standard formatting.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Doc Card 1 -->
+                    <div class="bg-gray-50 dark:bg-secondary-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow group flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 bg-white dark:bg-secondary-900 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-file-contract"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-heading text-secondary-900 dark:text-white mb-3">Damage Report</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">A thorough outline of the cause of loss, affected areas, and immediate mitigation steps taken.</p>
+                    </div>
+
+                    <!-- Doc Card 2 -->
+                    <div class="bg-gray-50 dark:bg-secondary-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow group flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-white dark:bg-secondary-900 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-droplet-slash"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-heading text-secondary-900 dark:text-white mb-3">Drying Report</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Daily temperature, humidity, and moisture readings verifying the property has reached dry standards.</p>
+                    </div>
+
+                    <!-- Doc Card 3 -->
+                    <div class="bg-gray-50 dark:bg-secondary-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow group flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-14 h-14 bg-white dark:bg-secondary-900 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-plug"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-heading text-secondary-900 dark:text-white mb-3">Equipment Log</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Detailed tracking of the exact type and number of air movers and dehumidifiers used on-site.</p>
+                    </div>
+
+                    <!-- Doc Card 4 -->
+                    <div class="bg-gray-50 dark:bg-secondary-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow group flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-14 h-14 bg-white dark:bg-secondary-900 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-heading text-secondary-900 dark:text-white mb-3">Restoration Invoice</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">We use Xactimate, the industry-standard estimating software, ensuring adjusters accept our pricing.</p>
+                    </div>
+                    
+                    <!-- Doc Card 5 -->
+                    <div class="bg-gray-50 dark:bg-secondary-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow group flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="500">
+                        <div class="w-14 h-14 bg-white dark:bg-secondary-900 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-check-double"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-heading text-secondary-900 dark:text-white mb-3">Completion Certificate</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">A signed document stating the property has been fully restored and mitigation is successful.</p>
+                    </div>
+
+                    <!-- Doc Card 6 -->
+                    <div class="bg-gray-50 dark:bg-secondary-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow group flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="600">
+                        <div class="w-14 h-14 bg-white dark:bg-secondary-900 rounded-full flex items-center justify-center text-primary-600 text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-heading text-secondary-900 dark:text-white mb-3">Photo Documentation</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Timestamped before-and-after photos of all affected areas, providing undeniable visual evidence for your claim.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Claim Support Process -->
+        <section class="py-24 bg-gray-50 dark:bg-secondary-800 border-t border-gray-200 dark:border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold text-secondary-900 dark:text-white mb-6">Our Claim Process</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">We're with you from the first call to the final check.</p>
+                </div>
+                
+                <div class="relative">
+                    <!-- Horizontal Line (Desktop) -->
+                    <div class="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 dark:bg-gray-700 -translate-y-1/2 z-0"></div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                        <!-- Process 1 -->
+                        <div class="relative z-10 text-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-20 h-20 mx-auto bg-white dark:bg-secondary-900 rounded-full border-4 border-primary-100 dark:border-primary-900 flex items-center justify-center text-primary-600 text-2xl mb-4 shadow-lg shadow-primary-500/10">
+                                <i class="fa-solid fa-house-crack"></i>
+                            </div>
+                            <h4 class="font-bold text-secondary-900 dark:text-white mb-2">Damage Occurs</h4>
+                        </div>
+                        
+                        <!-- Process 2 -->
+                        <div class="relative z-10 text-center" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="w-20 h-20 mx-auto bg-white dark:bg-secondary-900 rounded-full border-4 border-primary-200 dark:border-primary-800 flex items-center justify-center text-primary-600 text-2xl mb-4 shadow-lg shadow-primary-500/10">
+                                <i class="fa-solid fa-camera-retro"></i>
+                            </div>
+                            <h4 class="font-bold text-secondary-900 dark:text-white mb-2">Documentation</h4>
+                        </div>
+                        
+                        <!-- Process 3 -->
+                        <div class="relative z-10 text-center" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="w-20 h-20 mx-auto bg-primary-600 rounded-full border-4 border-primary-300 dark:border-primary-700 flex items-center justify-center text-white text-2xl mb-4 shadow-xl shadow-primary-500/30 scale-110">
+                                <i class="fa-solid fa-file-signature"></i>
+                            </div>
+                            <h4 class="font-bold text-primary-600 mb-2">Claim Prep</h4>
+                        </div>
+                        
+                        <!-- Process 4 -->
+                        <div class="relative z-10 text-center" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="w-20 h-20 mx-auto bg-white dark:bg-secondary-900 rounded-full border-4 border-primary-200 dark:border-primary-800 flex items-center justify-center text-primary-600 text-2xl mb-4 shadow-lg shadow-primary-500/10">
+                                <i class="fa-solid fa-hammer"></i>
+                            </div>
+                            <h4 class="font-bold text-secondary-900 dark:text-white mb-2">Restoration</h4>
+                        </div>
+                        
+                        <!-- Process 5 -->
+                        <div class="relative z-10 text-center" data-aos="zoom-in" data-aos-delay="500">
+                            <div class="w-20 h-20 mx-auto bg-white dark:bg-secondary-900 rounded-full border-4 border-primary-100 dark:border-primary-900 flex items-center justify-center text-primary-600 text-2xl mb-4 shadow-lg shadow-primary-500/10">
+                                <i class="fa-solid fa-folder-closed"></i>
+                            </div>
+                            <h4 class="font-bold text-secondary-900 dark:text-white mb-2">Final Records</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Insurance Support CTA -->
+        <section class="py-24 bg-secondary-900 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10"></div>
+            <div class="max-w-4xl mx-auto px-4 relative z-10" data-aos="zoom-in">
+                <h2 class="text-4xl font-heading font-bold text-white mb-6">Need Help Filing Your Water Damage Claim?</h2>
+                <p class="text-xl text-gray-400 mb-10">Call us before you call your insurance. We can guide you through the process to ensure maximum coverage.</p>
+                <a href="tel:18005550199" class="bg-red-600 hover:bg-red-700 text-white px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-xl inline-flex items-center gap-3">
+                    <i class="fa-solid fa-phone"></i> 1-800-555-0199
+                </a>
+            </div>
+        </section>
+    </main>
+
+        <!-- Premium Footer -->
+    <footer class="bg-gray-50 dark:bg-secondary-900 text-gray-800 dark:text-white pt-20 pb-10 border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)]" style="background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="space-y-6">
+                    <a href="../index.html" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold text-xl">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <span class="font-heading font-bold text-2xl tracking-tight text-secondary-900 dark:text-white">Aqua<span class="text-primary-500">Restore</span></span>
+                    </a>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Expert water damage restoration, structural drying, and mold prevention. Available 24/7 for immediate emergency dispatch.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-secondary-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-secondary-900 dark:hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-secondary-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-secondary-900 dark:hover:text-white transition-colors">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-secondary-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-secondary-900 dark:hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6 text-secondary-900 dark:text-white">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Home</a></li>
+                        <li><a href="about.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> About Us</a></li>
+                        <li><a href="insurance.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Insurance Process</a></li>
+                        <li><a href="login.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Client Portal</a></li>
+                        <li><a href="contact.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6 text-secondary-900 dark:text-white">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Water Extraction</a></li>
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Structural Drying</a></li>
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Mold Prevention</a></li>
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Sewage Cleanup</a></li>
+                        <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Commercial Recovery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6 text-secondary-900 dark:text-white">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-primary-500 mt-1"></i>
+                            <span class="text-gray-600 dark:text-gray-400 text-sm">1234 Restoration Blvd<br>Metro City, MC 90210</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-primary-500"></i>
+                            <a href="mailto:dispatch@aquarestore.com" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm">dispatch@aquarestore.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone-volume text-primary-500"></i>
+                            <a href="tel:18005550199" class="text-xl font-bold font-heading text-secondary-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">1-800-555-0199</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 AquaRestore. All rights reserved.</p>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="#" class="text-gray-500 hover:text-secondary-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-secondary-900 dark:hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-secondary-900 dark:hover:text-white transition-colors">Sitemap</a>
+                </div>
+                <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="text-gray-500 hover:text-secondary-900 dark:hover:text-white transition-colors text-sm flex items-center gap-2" aria-label="Back to Top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+    </script>
+</body>
+</html>
