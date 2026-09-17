@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Dashboard | AquaRestore</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -36,70 +37,97 @@
             }
         }
     </script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
-    
+
     <!-- Chart.js for Dashboard Visuals -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50 dark:bg-secondary-900 dark:text-gray-200 transition-colors duration-300">
+
+<body
+    class="font-sans text-gray-800 bg-gray-50 dark:bg-secondary-900 dark:text-gray-200 transition-colors duration-300">
 
     <div class="flex h-screen overflow-hidden">
-        
+
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-64 bg-white dark:bg-secondary-800 border-r border-gray-200 dark:border-gray-700 flex-shrink-0 hidden md:flex flex-col transition-all z-20 absolute md:relative h-full shadow-2xl md:shadow-none">
+        <aside id="sidebar"
+            class="w-64 bg-white dark:bg-secondary-800 border-r border-gray-200 dark:border-gray-700 flex-shrink-0 hidden md:flex flex-col transition-all z-20 absolute md:relative h-full shadow-2xl md:shadow-none">
             <div class="h-20 flex items-center px-6 border-b border-gray-200 dark:border-gray-700 justify-between">
                 <a href="../index.html" class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded bg-primary-600 flex items-center justify-center text-white font-bold text-sm">
+                    <div
+                        class="w-8 h-8 rounded bg-primary-600 flex items-center justify-center text-white font-bold text-sm">
                         <i class="fa-solid fa-droplet"></i>
                     </div>
-                    <span class="font-heading font-bold text-xl text-secondary-900 dark:text-white">Aqua<span class="text-primary-600">Restore</span></span>
+                    <span class="font-heading font-bold text-xl text-secondary-900 dark:text-white">Aqua<span
+                            class="text-primary-600">Restore</span></span>
                 </a>
-                <button id="closeSidebar" class="md:hidden text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white">
+                <button id="closeSidebar"
+                    class="md:hidden text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
-            
+
             <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1 custom-scrollbar">
-                <button class="nav-btn active w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium transition-colors bg-primary-50 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400" data-target="overview">
+                <button
+                    class="nav-btn active w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium transition-colors bg-primary-50 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400"
+                    data-target="overview">
                     <i class="fa-solid fa-border-all w-5"></i> Overview
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors" data-target="request">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors"
+                    data-target="request">
                     <i class="fa-solid fa-truck-fast w-5"></i> Emergency Request
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors" data-target="jobs">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors"
+                    data-target="jobs">
                     <i class="fa-solid fa-clipboard-list w-5"></i> My Jobs
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors" data-target="tracking">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors"
+                    data-target="tracking">
                     <i class="fa-solid fa-location-dot w-5"></i> Crew Tracking
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors" data-target="drying">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors"
+                    data-target="drying">
                     <i class="fa-solid fa-temperature-half w-5"></i> Drying Progress
                 </button>
-                
+
                 <div class="pt-4 pb-2">
-                    <p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Financials & Docs</p>
+                    <p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                        Financials & Docs</p>
                 </div>
-                <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors" data-target="documents">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors"
+                    data-target="documents">
                     <i class="fa-solid fa-file-shield w-5"></i> Insurance Documents
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors" data-target="invoices">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors"
+                    data-target="invoices">
                     <i class="fa-solid fa-file-invoice-dollar w-5"></i> Invoices
                 </button>
 
                 <div class="pt-4 pb-2">
-                    <p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Account</p>
+                    <p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                        Account</p>
                 </div>
-                <button class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors" data-target="settings">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors"
+                    data-target="settings">
                     <i class="fa-solid fa-gear w-5"></i> Settings
                 </button>
             </nav>
-            
+
             <div class="p-4 border-t border-gray-200 dark:border-gray-700">
-                <a href="../index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 text-sm font-medium transition-colors">
+                <a href="../index.html"
+                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 text-sm font-medium transition-colors">
                     <i class="fa-solid fa-arrow-right-from-bracket w-5"></i> Logout
                 </a>
             </div>
@@ -107,126 +135,164 @@
 
         <!-- Main Content -->
         <div class="flex-1 flex flex-col overflow-hidden relative">
-            
+
             <!-- Topbar -->
-            <header class="h-20 bg-white dark:bg-secondary-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-4 sm:px-6 z-10 shadow-sm">
+            <header
+                class="h-20 bg-white dark:bg-secondary-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-4 sm:px-6 z-10 shadow-sm">
                 <div class="flex items-center">
-                    <button id="openSidebar" class="md:hidden text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white mr-4">
+                    <button id="openSidebar"
+                        class="md:hidden text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white mr-4">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
-                    <h1 id="pageTitle" class="text-xl font-heading font-bold text-secondary-900 dark:text-white">Dashboard Overview</h1>
+                    <h1 id="pageTitle" class="text-xl font-heading font-bold text-secondary-900 dark:text-white">
+                        Dashboard Overview</h1>
                 </div>
-                
+
                 <div class="flex items-center gap-4">
-                    <button class="relative p-2 text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors">
+                    <button
+                        class="relative p-2 text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors">
                         <i class="fa-regular fa-bell text-xl"></i>
-                        <span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 border-2 border-white dark:border-secondary-800 rounded-full"></span>
+                        <span
+                            class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 border-2 border-white dark:border-secondary-800 rounded-full"></span>
                     </button>
-                    <button id="themeToggle" class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors">
+                    <button id="themeToggle"
+                        class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors">
                         <i class="fa-solid fa-moon dark:hidden text-xl"></i>
                         <i class="fa-solid fa-sun hidden dark:block text-yellow-400 text-xl"></i>
                     </button>
-                    <div class="h-8 w-8 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 font-bold flex items-center justify-center border border-primary-200 dark:border-primary-700 ml-2">
+                    <div
+                        class="h-8 w-8 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 font-bold flex items-center justify-center border border-primary-200 dark:border-primary-700 ml-2">
                         JD
                     </div>
                 </div>
             </header>
 
             <!-- Dashboard Views -->
-            <main class="flex-1 overflow-y-auto bg-gray-50 dark:bg-secondary-900 p-4 sm:p-6 lg:p-8 custom-scrollbar relative">
-                
+            <main
+                class="flex-1 overflow-y-auto bg-gray-50 dark:bg-secondary-900 p-4 sm:p-6 lg:p-8 custom-scrollbar relative">
+
                 <!-- Overview View -->
                 <div id="view-overview" class="dashboard-view block space-y-6">
                     <!-- Status Banner -->
-                    <div class="bg-primary-600 rounded-2xl p-6 text-white shadow-lg flex flex-col md:flex-row justify-between items-center gap-4">
-                        <div>
+                    <div
+                        class="bg-primary-600 rounded-2xl p-6 text-white shadow-lg flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div class="flex-1 min-w-0">
                             <div class="flex items-center gap-2 mb-2">
-                                <span class="bg-white/20 px-2 py-1 rounded text-xs font-bold tracking-wider uppercase">Active Job #4912</span>
-                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold uppercase"><i class="fa-solid fa-spinner fa-spin mr-1"></i> In Progress</span>
+                                <span
+                                    class="bg-white/20 px-2 py-1 rounded text-xs font-bold tracking-wider uppercase">Active
+                                    Job #4912</span>
+                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold uppercase"><i
+                                        class="fa-solid fa-spinner fa-spin mr-1"></i> In Progress</span>
                             </div>
-                            <h2 class="text-2xl font-bold font-heading mb-1">Basement Flood Mitigation</h2>
-                            <p class="text-primary-100 text-sm"><i class="fa-solid fa-location-dot mr-1"></i> 1234 Residential Ave, Metro City</p>
+                            <h2 class="text-2xl font-bold font-heading mb-1 truncate">Basement Flood Mitigation</h2>
+                            <p class="text-primary-100 text-sm truncate"><i class="fa-solid fa-location-dot mr-1"></i>
+                                1234 Residential Ave, Metro City</p>
                         </div>
-                        <button class="nav-link bg-white text-primary-600 hover:bg-gray-50 px-6 py-2 rounded-lg font-bold shadow transition-colors shrink-0" data-target="tracking">
+                        <button
+                            class="nav-link bg-white text-primary-600 hover:bg-gray-50 px-6 py-2 rounded-lg font-bold shadow transition-colors shrink-0"
+                            data-target="tracking">
                             Track Crew
                         </button>
                     </div>
 
                     <!-- Quick Stats Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="bg-white dark:bg-secondary-800 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        <div
+                            class="bg-white dark:bg-secondary-800 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
                             <div class="flex justify-between items-start mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-500 flex items-center justify-center text-lg">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-500 flex items-center justify-center text-lg">
                                     <i class="fa-solid fa-droplet-slash"></i>
                                 </div>
                                 <span class="text-xs font-bold text-gray-500 uppercase">Drying</span>
                             </div>
-                            <div class="text-3xl font-heading font-bold text-secondary-900 dark:text-white mb-1">45%</div>
+                            <div class="text-3xl font-heading font-bold text-secondary-900 dark:text-white mb-1">45%
+                            </div>
                             <p class="text-xs text-gray-500 dark:text-gray-400">Target: <15% Moisture</p>
                         </div>
-                        
-                        <div class="bg-white dark:bg-secondary-800 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+
+                        <div
+                            class="bg-white dark:bg-secondary-800 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
                             <div class="flex justify-between items-start mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/30 text-amber-500 flex items-center justify-center text-lg">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/30 text-amber-500 flex items-center justify-center text-lg">
                                     <i class="fa-solid fa-fan"></i>
                                 </div>
                                 <span class="text-xs font-bold text-gray-500 uppercase">Equipment</span>
                             </div>
-                            <div class="text-3xl font-heading font-bold text-secondary-900 dark:text-white mb-1">12</div>
+                            <div class="text-3xl font-heading font-bold text-secondary-900 dark:text-white mb-1">12
+                            </div>
                             <p class="text-xs text-gray-500 dark:text-gray-400">Active Units On-Site</p>
                         </div>
 
-                        <div class="bg-white dark:bg-secondary-800 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        <div
+                            class="bg-white dark:bg-secondary-800 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
                             <div class="flex justify-between items-start mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-green-50 dark:bg-green-900/30 text-green-500 flex items-center justify-center text-lg">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-green-50 dark:bg-green-900/30 text-green-500 flex items-center justify-center text-lg">
                                     <i class="fa-solid fa-file-shield"></i>
                                 </div>
                                 <span class="text-xs font-bold text-gray-500 uppercase">Claim</span>
                             </div>
-                            <div class="text-xl font-heading font-bold text-secondary-900 dark:text-white mb-1 mt-2">Submitted</div>
+                            <div class="text-xl font-heading font-bold text-secondary-900 dark:text-white mb-1 mt-2">
+                                Submitted</div>
                             <p class="text-xs text-gray-500 dark:text-gray-400">State Farm #SF-8891</p>
                         </div>
 
-                        <div class="bg-white dark:bg-secondary-800 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        <div
+                            class="bg-white dark:bg-secondary-800 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
                             <div class="flex justify-between items-start mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-900/30 text-red-500 flex items-center justify-center text-lg">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-900/30 text-red-500 flex items-center justify-center text-lg">
                                     <i class="fa-solid fa-file-invoice-dollar"></i>
                                 </div>
                                 <span class="text-xs font-bold text-gray-500 uppercase">Invoice</span>
                             </div>
-                            <div class="text-xl font-heading font-bold text-secondary-900 dark:text-white mb-1 mt-2">$2,450.00</div>
+                            <div class="text-xl font-heading font-bold text-secondary-900 dark:text-white mb-1 mt-2">
+                                $2,450.00</div>
                             <p class="text-xs text-red-500 font-medium">Due in 14 days</p>
                         </div>
                     </div>
 
                     <!-- Recent Notifications -->
-                    <div class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6">
-                        <h3 class="font-bold text-lg text-secondary-900 dark:text-white mb-4 font-heading">Recent Updates</h3>
+                    <div
+                        class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6">
+                        <h3 class="font-bold text-lg text-secondary-900 dark:text-white mb-4 font-heading">Recent
+                            Updates</h3>
                         <div class="space-y-4">
-                            <div class="flex gap-4 items-start p-3 hover:bg-gray-50 dark:hover:bg-secondary-700/50 rounded-xl transition-colors">
-                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mt-1">
+                            <div
+                                class="flex gap-4 items-start p-3 hover:bg-gray-50 dark:hover:bg-secondary-700/50 rounded-xl transition-colors">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mt-1">
                                     <i class="fa-solid fa-temperature-half text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-secondary-900 dark:text-white font-medium">Daily moisture readings uploaded.</p>
+                                    <p class="text-sm text-secondary-900 dark:text-white font-medium">Daily moisture
+                                        readings uploaded.</p>
                                     <p class="text-xs text-gray-500 mt-1">Today at 9:14 AM</p>
                                 </div>
                             </div>
-                            <div class="flex gap-4 items-start p-3 hover:bg-gray-50 dark:hover:bg-secondary-700/50 rounded-xl transition-colors">
-                                <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
+                            <div
+                                class="flex gap-4 items-start p-3 hover:bg-gray-50 dark:hover:bg-secondary-700/50 rounded-xl transition-colors">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
                                     <i class="fa-solid fa-file-contract text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-secondary-900 dark:text-white font-medium">Initial Damage Assessment sent to insurance adjuster.</p>
+                                    <p class="text-sm text-secondary-900 dark:text-white font-medium">Initial Damage
+                                        Assessment sent to insurance adjuster.</p>
                                     <p class="text-xs text-gray-500 mt-1">Yesterday at 4:30 PM</p>
                                 </div>
                             </div>
-                            <div class="flex gap-4 items-start p-3 hover:bg-gray-50 dark:hover:bg-secondary-700/50 rounded-xl transition-colors">
-                                <div class="w-8 h-8 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center shrink-0 mt-1">
+                            <div
+                                class="flex gap-4 items-start p-3 hover:bg-gray-50 dark:hover:bg-secondary-700/50 rounded-xl transition-colors">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center shrink-0 mt-1">
                                     <i class="fa-solid fa-truck-fast text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-secondary-900 dark:text-white font-medium">Crew Alpha arrived on site for extraction.</p>
+                                    <p class="text-sm text-secondary-900 dark:text-white font-medium">Crew Alpha arrived
+                                        on site for extraction.</p>
                                     <p class="text-xs text-gray-500 mt-1">Sept 14, 2026 at 11:22 AM</p>
                                 </div>
                             </div>
@@ -236,34 +302,47 @@
 
                 <!-- Emergency Request View -->
                 <div id="view-request" class="dashboard-view hidden">
-                    <div class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 max-w-3xl">
-                        <h2 class="text-2xl font-bold font-heading mb-6 text-secondary-900 dark:text-white">Submit New Request</h2>
+                    <div
+                        class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 max-w-3xl">
+                        <h2 class="text-2xl font-bold font-heading mb-6 text-secondary-900 dark:text-white">Submit New
+                            Request</h2>
                         <form class="space-y-5">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Property Address</label>
-                                <input type="text" value="1234 Residential Ave, Metro City" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white">
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Property
+                                    Address</label>
+                                <input type="text" value="1234 Residential Ave, Metro City"
+                                    class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white">
                             </div>
                             <div class="grid grid-cols-2 gap-5">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Damage Type</label>
-                                    <select class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white">
+                                    <label
+                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Damage
+                                        Type</label>
+                                    <select
+                                        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white">
                                         <option>Flood</option>
                                         <option>Pipe Burst</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Emergency Level</label>
-                                    <select class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white border-red-300 text-red-600 font-bold">
+                                    <label
+                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Emergency
+                                        Level</label>
+                                    <select
+                                        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white border-red-300 text-red-600 font-bold">
                                         <option>High (Active Leak)</option>
                                         <option>Medium</option>
                                     </select>
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Description</label>
-                                <textarea rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white"></textarea>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Description</label>
+                                <textarea rows="4"
+                                    class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900 text-gray-900 dark:text-white"></textarea>
                             </div>
-                            <button type="button" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 w-full">
+                            <button type="button"
+                                class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 w-full">
                                 <i class="fa-solid fa-triangle-exclamation"></i> Submit Emergency Request
                             </button>
                         </form>
@@ -272,32 +351,45 @@
 
                 <!-- My Jobs View -->
                 <div id="view-jobs" class="dashboard-view hidden">
-                    <div class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div
+                        class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead>
-                                    <tr class="bg-gray-50 dark:bg-secondary-900/50 border-b border-gray-200 dark:border-gray-700">
-                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Job ID</th>
+                                    <tr
+                                        class="bg-gray-50 dark:bg-secondary-900/50 border-b border-gray-200 dark:border-gray-700">
+                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Job ID
+                                        </th>
                                         <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Type</th>
-                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Status</th>
+                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Status
+                                        </th>
                                         <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Date</th>
-                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Action</th>
+                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Action
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                                     <tr class="hover:bg-gray-50 dark:hover:bg-secondary-700/30 transition-colors">
                                         <td class="p-4 font-bold text-secondary-900 dark:text-white">#4912</td>
                                         <td class="p-4 text-sm text-gray-600 dark:text-gray-300">Basement Flood</td>
-                                        <td class="p-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded">In Progress (Drying)</span></td>
+                                        <td class="p-4"><span
+                                                class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded">In
+                                                Progress (Drying)</span></td>
                                         <td class="p-4 text-sm text-gray-600 dark:text-gray-300">Sept 14, 2026</td>
-                                        <td class="p-4"><button class="text-primary-600 hover:underline text-sm font-medium">View Details</button></td>
+                                        <td class="p-4"><button
+                                                class="text-primary-600 hover:underline text-sm font-medium">View
+                                                Details</button></td>
                                     </tr>
                                     <tr class="hover:bg-gray-50 dark:hover:bg-secondary-700/30 transition-colors">
                                         <td class="p-4 font-bold text-secondary-900 dark:text-white">#3821</td>
                                         <td class="p-4 text-sm text-gray-600 dark:text-gray-300">Kitchen Leak</td>
-                                        <td class="p-4"><span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded">Completed</span></td>
+                                        <td class="p-4"><span
+                                                class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded">Completed</span>
+                                        </td>
                                         <td class="p-4 text-sm text-gray-600 dark:text-gray-300">Jan 10, 2025</td>
-                                        <td class="p-4"><button class="text-primary-600 hover:underline text-sm font-medium">View Details</button></td>
+                                        <td class="p-4"><button
+                                                class="text-primary-600 hover:underline text-sm font-medium">View
+                                                Details</button></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -307,42 +399,59 @@
 
                 <!-- Crew Tracking View -->
                 <div id="view-tracking" class="dashboard-view hidden space-y-6">
-                    <div class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6">
-                        <div class="flex justify-between items-center mb-8 border-b border-gray-100 dark:border-gray-700 pb-4">
-                            <h2 class="text-2xl font-bold font-heading text-secondary-900 dark:text-white">Active Dispatch: Crew Alpha</h2>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> On Site</span>
+                    <div
+                        class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6">
+                        <div
+                            class="flex justify-between items-center mb-8 border-b border-gray-100 dark:border-gray-700 pb-4">
+                            <h2 class="text-2xl font-bold font-heading text-secondary-900 dark:text-white">Active
+                                Dispatch: Crew Alpha</h2>
+                            <span
+                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-2"><span
+                                    class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> On Site</span>
                         </div>
-                        
+
                         <!-- Visual Timeline Tracker -->
                         <div class="relative max-w-3xl mx-auto py-8">
                             <!-- Track Line -->
-                            <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-200 dark:bg-gray-700 -translate-y-1/2">
-                                <div class="h-full bg-primary-500 transition-all duration-1000" style="width: 75%;"></div>
+                            <div
+                                class="absolute top-1/2 left-0 w-full h-1 bg-gray-200 dark:bg-gray-700 -translate-y-1/2">
+                                <div class="h-full bg-primary-500 transition-all duration-1000" style="width: 75%;">
+                                </div>
                             </div>
-                            
+
                             <div class="relative flex justify-between">
                                 <div class="flex flex-col items-center">
-                                    <div class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center z-10 mb-2 shadow"><i class="fa-solid fa-check text-xs"></i></div>
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center z-10 mb-2 shadow">
+                                        <i class="fa-solid fa-check text-xs"></i></div>
                                     <span class="text-xs font-bold text-gray-600 dark:text-gray-300">Requested</span>
                                     <span class="text-[10px] text-gray-400">11:05 AM</span>
                                 </div>
                                 <div class="flex flex-col items-center">
-                                    <div class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center z-10 mb-2 shadow"><i class="fa-solid fa-check text-xs"></i></div>
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center z-10 mb-2 shadow">
+                                        <i class="fa-solid fa-check text-xs"></i></div>
                                     <span class="text-xs font-bold text-gray-600 dark:text-gray-300">En Route</span>
                                     <span class="text-[10px] text-gray-400">11:10 AM</span>
                                 </div>
                                 <div class="flex flex-col items-center">
-                                    <div class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center z-10 mb-2 shadow"><i class="fa-solid fa-check text-xs"></i></div>
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center z-10 mb-2 shadow">
+                                        <i class="fa-solid fa-check text-xs"></i></div>
                                     <span class="text-xs font-bold text-gray-600 dark:text-gray-300">Arrived</span>
                                     <span class="text-[10px] text-gray-400">11:22 AM</span>
                                 </div>
                                 <div class="flex flex-col items-center">
-                                    <div class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center z-10 mb-2 shadow animate-pulse border-2 border-white dark:border-secondary-800"><i class="fa-solid fa-screwdriver-wrench text-xs"></i></div>
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center z-10 mb-2 shadow animate-pulse border-2 border-white dark:border-secondary-800">
+                                        <i class="fa-solid fa-screwdriver-wrench text-xs"></i></div>
                                     <span class="text-xs font-bold text-primary-600">Working</span>
                                     <span class="text-[10px] text-gray-400">In Progress</span>
                                 </div>
                                 <div class="flex flex-col items-center">
-                                    <div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-400 flex items-center justify-center z-10 mb-2 border-2 border-white dark:border-secondary-800"></div>
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-400 flex items-center justify-center z-10 mb-2 border-2 border-white dark:border-secondary-800">
+                                    </div>
                                     <span class="text-xs font-bold text-gray-400">Complete</span>
                                 </div>
                             </div>
@@ -353,13 +462,16 @@
                 <!-- Drying Progress View -->
                 <div id="view-drying" class="dashboard-view hidden space-y-6">
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <div class="lg:col-span-2 bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6">
-                            <h3 class="font-bold font-heading mb-4 text-secondary-900 dark:text-white">Moisture Reduction Chart</h3>
+                        <div
+                            class="lg:col-span-2 bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6">
+                            <h3 class="font-bold font-heading mb-4 text-secondary-900 dark:text-white">Moisture
+                                Reduction Chart</h3>
                             <div class="relative w-full" style="height: 260px;">
                                 <canvas id="moistureChart"></canvas>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 flex flex-col justify-center text-center">
+                        <div
+                            class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 flex flex-col justify-center text-center">
                             <div class="mb-2">
                                 <span class="text-sm text-gray-500 font-bold uppercase">Current Ave Moisture</span>
                             </div>
@@ -378,28 +490,46 @@
                 <div id="view-documents" class="dashboard-view hidden">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Doc Card -->
-                        <div class="bg-white dark:bg-secondary-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex items-start gap-4 hover:border-primary-300 transition-colors cursor-pointer group">
-                            <div class="w-12 h-12 rounded bg-red-50 text-red-500 flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-file-pdf"></i></div>
-                            <div>
-                                <h4 class="font-bold text-secondary-900 dark:text-white group-hover:text-primary-600 transition-colors">Initial Damage Assessment</h4>
+                        <div
+                            class="bg-white dark:bg-secondary-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col h-full gap-4 hover:border-primary-300 transition-colors cursor-pointer group">
+                            <div
+                                class="w-12 h-12 rounded bg-red-50 text-red-500 flex items-center justify-center text-2xl shrink-0 self-start">
+                                <i class="fa-solid fa-file-pdf"></i></div>
+                            <h4
+                                class="font-bold text-secondary-900 dark:text-white group-hover:text-primary-600 transition-colors flex-1">
+                                Initial Assessment</h4>
+                            <div class="mt-auto">
                                 <p class="text-xs text-gray-500 mb-2">Sept 14, 2026 • 2.4 MB</p>
-                                <button class="text-primary-600 text-sm font-medium hover:underline"><i class="fa-solid fa-download mr-1"></i> Download</button>
+                                <button class="text-primary-600 text-sm font-medium hover:underline"><i
+                                        class="fa-solid fa-download mr-1"></i> Download</button>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-secondary-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex items-start gap-4 hover:border-primary-300 transition-colors cursor-pointer group">
-                            <div class="w-12 h-12 rounded bg-red-50 text-red-500 flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-file-pdf"></i></div>
-                            <div>
-                                <h4 class="font-bold text-secondary-900 dark:text-white group-hover:text-primary-600 transition-colors">Daily Moisture Log</h4>
+                        <div
+                            class="bg-white dark:bg-secondary-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col h-full gap-4 hover:border-primary-300 transition-colors cursor-pointer group">
+                            <div
+                                class="w-12 h-12 rounded bg-red-50 text-red-500 flex items-center justify-center text-2xl shrink-0 self-start">
+                                <i class="fa-solid fa-file-pdf"></i></div>
+                            <h4
+                                class="font-bold text-secondary-900 dark:text-white group-hover:text-primary-600 transition-colors flex-1">
+                                Daily Moisture Log</h4>
+                            <div class="mt-auto">
                                 <p class="text-xs text-gray-500 mb-2">Sept 15, 2026 • 1.1 MB</p>
-                                <button class="text-primary-600 text-sm font-medium hover:underline"><i class="fa-solid fa-download mr-1"></i> Download</button>
+                                <button class="text-primary-600 text-sm font-medium hover:underline"><i
+                                        class="fa-solid fa-download mr-1"></i> Download</button>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-secondary-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex items-start gap-4 hover:border-primary-300 transition-colors cursor-pointer group">
-                            <div class="w-12 h-12 rounded bg-blue-50 text-blue-500 flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-images"></i></div>
-                            <div>
-                                <h4 class="font-bold text-secondary-900 dark:text-white group-hover:text-primary-600 transition-colors">Photo Documentation</h4>
+                        <div
+                            class="bg-white dark:bg-secondary-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col h-full gap-4 hover:border-primary-300 transition-colors cursor-pointer group">
+                            <div
+                                class="w-12 h-12 rounded bg-blue-50 text-blue-500 flex items-center justify-center text-2xl shrink-0 self-start">
+                                <i class="fa-solid fa-images"></i></div>
+                            <h4
+                                class="font-bold text-secondary-900 dark:text-white group-hover:text-primary-600 transition-colors flex-1">
+                                Photo Documentation</h4>
+                            <div class="mt-auto">
                                 <p class="text-xs text-gray-500 mb-2">Sept 14, 2026 • 15.8 MB (ZIP)</p>
-                                <button class="text-primary-600 text-sm font-medium hover:underline"><i class="fa-solid fa-download mr-1"></i> Download</button>
+                                <button class="text-primary-600 text-sm font-medium hover:underline"><i
+                                        class="fa-solid fa-download mr-1"></i> Download</button>
                             </div>
                         </div>
                     </div>
@@ -407,20 +537,30 @@
 
                 <!-- Invoices View -->
                 <div id="view-invoices" class="dashboard-view hidden">
-                    <div class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
-                        <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center">
-                            <h3 class="font-bold text-lg text-secondary-900 dark:text-white font-heading">Outstanding Balance: <span class="text-red-500">$2,450.00</span></h3>
-                            <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-bold text-sm shadow">Pay All Outstanding</button>
+                    <div
+                        class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                        <div
+                            class="p-4 sm:p-6 border-b border-gray-100 dark:border-gray-700 flex flex-wrap justify-between items-center gap-4">
+                            <h3 class="font-bold text-lg text-secondary-900 dark:text-white font-heading">Outstanding
+                                Balance: <span class="text-red-500">$2,450.00</span></h3>
+                            <button
+                                class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-bold text-sm shadow shrink-0">Pay
+                                All Outstanding</button>
                         </div>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse">
                                 <thead>
-                                    <tr class="bg-gray-50 dark:bg-secondary-900/50 border-b border-gray-200 dark:border-gray-700">
-                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Invoice #</th>
+                                    <tr
+                                        class="bg-gray-50 dark:bg-secondary-900/50 border-b border-gray-200 dark:border-gray-700">
+                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Invoice #
+                                        </th>
                                         <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Date</th>
-                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Amount</th>
-                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Status</th>
-                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Action</th>
+                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Amount
+                                        </th>
+                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Status
+                                        </th>
+                                        <th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Action
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -428,10 +568,16 @@
                                         <td class="p-4 font-bold text-secondary-900 dark:text-white">INV-8910</td>
                                         <td class="p-4 text-sm text-gray-600 dark:text-gray-300">Sept 14, 2026</td>
                                         <td class="p-4 font-medium text-secondary-900 dark:text-white">$2,450.00</td>
-                                        <td class="p-4"><span class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded">Unpaid</span></td>
+                                        <td class="p-4"><span
+                                                class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded">Unpaid</span>
+                                        </td>
                                         <td class="p-4 flex gap-2">
-                                            <button class="text-primary-600 hover:bg-primary-50 p-2 rounded transition-colors"><i class="fa-solid fa-download"></i></button>
-                                            <button class="bg-secondary-900 dark:bg-gray-600 text-white px-3 py-1 rounded font-medium text-sm">Pay Now</button>
+                                            <button
+                                                class="text-primary-600 hover:bg-primary-50 p-2 rounded transition-colors"><i
+                                                    class="fa-solid fa-download"></i></button>
+                                            <button
+                                                class="bg-secondary-900 dark:bg-gray-600 text-white px-3 py-1 rounded font-medium text-sm">Pay
+                                                Now</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -442,31 +588,39 @@
 
                 <!-- Settings View -->
                 <div id="view-settings" class="dashboard-view hidden">
-                    <div class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 max-w-2xl">
-                        <h2 class="text-2xl font-bold font-heading mb-6 text-secondary-900 dark:text-white">Account Settings</h2>
-                        
+                    <div
+                        class="bg-white dark:bg-secondary-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 max-w-2xl">
+                        <h2 class="text-2xl font-bold font-heading mb-6 text-secondary-900 dark:text-white">Account
+                            Settings</h2>
+
                         <div class="space-y-6">
                             <div>
                                 <h3 class="font-bold mb-4 border-b pb-2 dark:border-gray-700">Profile Information</h3>
                                 <div class="grid grid-cols-2 gap-4">
-                                    <input type="text" value="John" class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900">
-                                    <input type="text" value="Doe" class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900">
-                                    <input type="email" value="john@example.com" class="col-span-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900">
+                                    <input type="text" value="John"
+                                        class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900">
+                                    <input type="text" value="Doe"
+                                        class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900">
+                                    <input type="email" value="john@example.com"
+                                        class="col-span-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-secondary-900">
                                 </div>
                             </div>
-                            
+
                             <div>
                                 <h3 class="font-bold mb-4 border-b pb-2 dark:border-gray-700">Preferences</h3>
                                 <div class="flex items-center justify-between py-2">
                                     <span class="text-sm font-medium">Email Notifications</span>
                                     <label class="relative inline-flex items-center cursor-pointer">
                                         <input type="checkbox" checked class="sr-only peer">
-                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600"></div>
+                                        <div
+                                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600">
+                                        </div>
                                     </label>
                                 </div>
                             </div>
 
-                            <button class="bg-primary-600 text-white px-6 py-2 rounded-lg font-bold">Save Changes</button>
+                            <button class="bg-primary-600 text-white px-6 py-2 rounded-lg font-bold">Save
+                                Changes</button>
                         </div>
                     </div>
                 </div>
@@ -480,7 +634,7 @@
     <script>
         // Chart.js init for Drying Progress
         const ctx = document.getElementById('moistureChart');
-        if(ctx) {
+        if (ctx) {
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -509,4 +663,5 @@
         }
     </script>
 </body>
+
 </html>
