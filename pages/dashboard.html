@@ -411,48 +411,65 @@
                         </div>
 
                         <!-- Visual Timeline Tracker -->
-                        <div class="relative max-w-3xl mx-auto py-8">
-                            <div class="relative flex justify-between">
-                                <!-- Track Line -->
+                        <div class="relative max-w-3xl mx-auto py-4 sm:py-8">
+                            <div class="relative flex flex-col sm:flex-row justify-between gap-6 sm:gap-0">
+                                <!-- Track Line (Horizontal for sm+) -->
                                 <div
-                                    class="absolute top-4 left-[10%] w-[80%] h-1 bg-gray-200 dark:bg-gray-700 -translate-y-1/2 z-0">
+                                    class="hidden sm:block absolute top-4 left-[10%] w-[80%] h-1 bg-gray-200 dark:bg-gray-700 -translate-y-1/2 z-0">
                                     <div class="h-full bg-primary-500 transition-all duration-1000" style="width: 75%;">
                                     </div>
                                 </div>
-
-                                <div class="flex flex-col items-center flex-1 w-0 text-center px-0.5 z-10">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center mb-2 shadow">
-                                        <i class="fa-solid fa-check text-xs"></i></div>
-                                    <span class="text-[11px] sm:text-xs font-bold text-gray-600 dark:text-gray-300 leading-tight">Requested</span>
-                                    <span class="text-[9px] sm:text-[10px] text-gray-400 mt-0.5">11:05 AM</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 w-0 text-center px-0.5 z-10">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center mb-2 shadow">
-                                        <i class="fa-solid fa-check text-xs"></i></div>
-                                    <span class="text-[11px] sm:text-xs font-bold text-gray-600 dark:text-gray-300 leading-tight">En Route</span>
-                                    <span class="text-[9px] sm:text-[10px] text-gray-400 mt-0.5">11:10 AM</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 w-0 text-center px-0.5 z-10">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center mb-2 shadow">
-                                        <i class="fa-solid fa-check text-xs"></i></div>
-                                    <span class="text-[11px] sm:text-xs font-bold text-gray-600 dark:text-gray-300 leading-tight">Arrived</span>
-                                    <span class="text-[9px] sm:text-[10px] text-gray-400 mt-0.5">11:22 AM</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 w-0 text-center px-0.5 z-10">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center mb-2 shadow animate-pulse border-2 border-white dark:border-secondary-800">
-                                        <i class="fa-solid fa-screwdriver-wrench text-xs"></i></div>
-                                    <span class="text-[11px] sm:text-xs font-bold text-primary-600 leading-tight">Working</span>
-                                    <span class="text-[9px] sm:text-[10px] text-gray-400 mt-0.5">In Progress</span>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 w-0 text-center px-0.5 z-10">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-400 flex items-center justify-center mb-2 border-2 border-white dark:border-secondary-800">
+                                <!-- Track Line (Vertical for mobile) -->
+                                <div
+                                    class="block sm:hidden absolute left-4 top-[10%] h-[80%] w-1 bg-gray-200 dark:bg-gray-700 -translate-x-1/2 z-0">
+                                    <div class="w-full bg-primary-500 transition-all duration-1000" style="height: 75%;">
                                     </div>
-                                    <span class="text-[11px] sm:text-xs font-bold text-gray-400 leading-tight">Complete</span>
+                                </div>
+
+                                <div class="flex flex-row sm:flex-col items-center sm:items-center justify-start sm:justify-center flex-1 w-full sm:w-0 text-left sm:text-center z-10">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center shrink-0 mb-0 sm:mb-2 mr-4 sm:mr-0 shadow z-10 relative">
+                                        <i class="fa-solid fa-check text-xs"></i></div>
+                                    <div class="flex flex-col">
+                                        <span class="text-sm sm:text-xs font-bold text-gray-600 dark:text-gray-300 leading-tight">Requested</span>
+                                        <span class="text-xs sm:text-[10px] text-gray-400 mt-0.5">11:05 AM</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row sm:flex-col items-center sm:items-center justify-start sm:justify-center flex-1 w-full sm:w-0 text-left sm:text-center z-10">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center shrink-0 mb-0 sm:mb-2 mr-4 sm:mr-0 shadow z-10 relative">
+                                        <i class="fa-solid fa-check text-xs"></i></div>
+                                    <div class="flex flex-col">
+                                        <span class="text-sm sm:text-xs font-bold text-gray-600 dark:text-gray-300 leading-tight">En Route</span>
+                                        <span class="text-xs sm:text-[10px] text-gray-400 mt-0.5">11:10 AM</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row sm:flex-col items-center sm:items-center justify-start sm:justify-center flex-1 w-full sm:w-0 text-left sm:text-center z-10">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center shrink-0 mb-0 sm:mb-2 mr-4 sm:mr-0 shadow z-10 relative">
+                                        <i class="fa-solid fa-check text-xs"></i></div>
+                                    <div class="flex flex-col">
+                                        <span class="text-sm sm:text-xs font-bold text-gray-600 dark:text-gray-300 leading-tight">Arrived</span>
+                                        <span class="text-xs sm:text-[10px] text-gray-400 mt-0.5">11:22 AM</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row sm:flex-col items-center sm:items-center justify-start sm:justify-center flex-1 w-full sm:w-0 text-left sm:text-center z-10">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center shrink-0 mb-0 sm:mb-2 mr-4 sm:mr-0 shadow animate-pulse z-10 relative">
+                                        <i class="fa-solid fa-screwdriver-wrench text-xs"></i></div>
+                                    <div class="flex flex-col">
+                                        <span class="text-sm sm:text-xs font-bold text-primary-600 leading-tight">Working</span>
+                                        <span class="text-xs sm:text-[10px] text-gray-400 mt-0.5">In Progress</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row sm:flex-col items-center sm:items-center justify-start sm:justify-center flex-1 w-full sm:w-0 text-left sm:text-center z-10">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-400 flex items-center justify-center shrink-0 mb-0 sm:mb-2 mr-4 sm:mr-0 z-10 relative">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-sm sm:text-xs font-bold text-gray-400 leading-tight">Complete</span>
+                                        <span class="text-xs sm:text-[10px] text-transparent mt-0.5 hidden sm:block">TBD</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
