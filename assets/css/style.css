@@ -118,10 +118,15 @@ ul li[class*="flex"] i {
     width: 1.25em;
     text-align: center;
 }
-ul li.flex span,
-ul li[class*="flex"] span,
-ul li.flex div,
-ul li[class*="flex"] div {
+ul li.flex > div:first-child,
+ul li[class*="flex"] > div:first-child {
+    flex: none;
+    flex-shrink: 0;
+}
+ul li.flex > span,
+ul li[class*="flex"] > span,
+ul li.flex > div:last-child,
+ul li[class*="flex"] > div:last-child {
     flex: 1;
     min-width: 0;
     text-align: left;
@@ -178,6 +183,31 @@ ul li[class*="flex"] > div > span {
         margin-right: auto;
         width: 100%;
     }
+}
+
+/* ---- G) Consistent Hero Section Heights ---- */
+.hero-inner {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+    .hero-inner {
+        min-height: 500px;
+        padding-top: 7rem;
+        padding-bottom: 5rem;
+    }
+}
+
+.hero-home {
+    min-height: 90vh;
 }
 
 html, body {

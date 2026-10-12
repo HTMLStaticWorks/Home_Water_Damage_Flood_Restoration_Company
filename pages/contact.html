@@ -48,11 +48,48 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
+
+    <!-- Social Icon Hover Styles -->
+    <style>
+        /* Base social icon: consistent size, shape, and dark-mode visibility */
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;       /* 48px */
+            height: 3rem;
+            border-radius: 9999px;
+            background-color: #f3f4f6; /* gray-100 */
+            color: #6b7280;            /* gray-500 */
+            font-size: 1.125rem;       /* text-lg */
+            transition: background-color 0.25s ease, color 0.25s ease,
+                        transform 0.25s ease, box-shadow 0.25s ease;
+            text-decoration: none;
+        }
+        /* Dark mode base */
+        .dark .social-icon {
+            background-color: rgba(255,255,255,0.10); /* white/10 */
+            color: #ffffff;
+        }
+        .social-icon:hover {
+            transform: scale(1.10);
+            color: #ffffff !important;
+        }
+        /* Brand-specific hover backgrounds */
+        .social-icon.si-facebook:hover  { background-color: #1877F2; box-shadow: 0 8px 24px rgba(24,119,242,0.35); }
+        .social-icon.si-twitter:hover   { background-color: #000000; box-shadow: 0 8px 24px rgba(0,0,0,0.30); }
+        .social-icon.si-instagram:hover {
+            background: linear-gradient(135deg, #833ab4 0%, #c13584 40%, #fd1d1d 70%, #fcb045 100%);
+            box-shadow: 0 8px 24px rgba(193,53,132,0.40);
+        }
+        .social-icon.si-linkedin:hover  { background-color: #0077B5; box-shadow: 0 8px 24px rgba(0,119,181,0.35); }
+        .social-icon.si-youtube:hover   { background-color: #FF0000; box-shadow: 0 8px 24px rgba(255,0,0,0.35); }
+    </style>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 dark:bg-secondary-900 dark:text-gray-200 transition-colors duration-300">
 
@@ -134,10 +171,17 @@
 
     <main>
         <!-- Section 1: Contact Hero -->
-        <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-24 bg-white dark:bg-secondary-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
-                <h1 class="text-4xl md:text-6xl font-heading font-bold text-secondary-900 dark:text-white mb-6">Contact Us</h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400">We're available 24/7 for emergencies. Reach out to request service or ask a question.</p>
+        <section class="hero-inner relative min-h-[480px] lg:min-h-[500px] pt-28 pb-16 lg:pt-32 lg:pb-20 flex items-center justify-center bg-gray-50 dark:bg-secondary-900 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2000" alt="Customer Support and Contact" class="w-full h-full object-cover opacity-50 dark:opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-secondary-900 to-transparent"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full" data-aos="fade-up">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-heading font-bold text-secondary-900 dark:text-white mb-6">Contact Us</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-300">We're available 24/7 for emergencies. Reach out to request service or ask a question.</p>
+                </div>
             </div>
         </section>
 
@@ -316,20 +360,20 @@
                         <div class="mt-8 pt-8 border-t border-gray-100 dark:border-gray-700">
                             <h4 class="font-bold text-secondary-900 dark:text-white mb-4">Follow Us</h4>
                             <div class="flex items-center gap-3">
-                                <a href="#" aria-label="Facebook" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 dark:text-white hover:bg-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30">
-                                    <i class="fa-brands fa-facebook-f text-lg"></i>
+                                <a href="#" aria-label="Facebook" class="social-icon si-facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
                                 </a>
-                                <a href="#" aria-label="Twitter / X" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 dark:text-white hover:bg-black hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-gray-700/30">
-                                    <i class="fa-brands fa-twitter text-lg"></i>
+                                <a href="#" aria-label="Twitter / X" class="social-icon si-twitter">
+                                    <i class="fa-brands fa-x-twitter"></i>
                                 </a>
-                                <a href="#" aria-label="Instagram" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 dark:text-white hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-500 hover:to-orange-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/30">
-                                    <i class="fa-brands fa-instagram text-lg"></i>
+                                <a href="#" aria-label="Instagram" class="social-icon si-instagram">
+                                    <i class="fa-brands fa-instagram"></i>
                                 </a>
-                                <a href="#" aria-label="LinkedIn" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 dark:text-white hover:bg-[#0077B5] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-sky-500/30">
-                                    <i class="fa-brands fa-linkedin-in text-lg"></i>
+                                <a href="#" aria-label="LinkedIn" class="social-icon si-linkedin">
+                                    <i class="fa-brands fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" aria-label="YouTube" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 dark:text-white hover:bg-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-red-500/30">
-                                    <i class="fa-brands fa-youtube text-lg"></i>
+                                <a href="#" aria-label="YouTube" class="social-icon si-youtube">
+                                    <i class="fa-brands fa-youtube"></i>
                                 </a>
                             </div>
                         </div>
@@ -389,7 +433,7 @@
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-secondary-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-secondary-900 dark:hover:text-white transition-colors">
-                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-x-twitter"></i>
                         </a>
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-secondary-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-secondary-900 dark:hover:text-white transition-colors">
                             <i class="fa-brands fa-instagram"></i>
