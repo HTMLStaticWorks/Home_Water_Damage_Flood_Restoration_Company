@@ -16,3 +16,19 @@
     -webkit-box-shadow: 0 0 0 30px #0f172a inset !important;
     -webkit-text-fill-color: white !important;
 }
+
+/* High contrast and legibility rules for dark mode */
+.dark .text-primary-900 {
+    color: #bae6fd;
+}
+
+.dark .text-primary-700 {
+    color: #7dd3fc;
+}
+
+/* Ensure active nav links and brand elements remain bright in dark mode */
+.dark nav a[class*="text-primary-600"],
+.dark #mobileMenu a[class*="text-primary-600"] {
+    color: #38bdf8;
+}
+

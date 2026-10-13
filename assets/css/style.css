@@ -2,10 +2,8 @@
  * AquaRestore Base Styles
  */
 
-@layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
+.text-balance {
+    text-wrap: balance;
 }
 
 /* Custom Scrollbar */
@@ -50,11 +48,20 @@ html {
 
 /* Additional Custom Utilities */
 .glass-effect {
-    @apply bg-white/70 dark:bg-secondary-900/70 backdrop-blur-md;
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+
+.dark .glass-effect {
+    background-color: rgba(15, 23, 42, 0.7);
 }
 
 .glass-card {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* =====================================================
@@ -212,4 +219,25 @@ ul li[class*="flex"] > div > span {
 
 html, body {
     overflow-x: hidden;
+}
+
+/* Matching Equal-Sized CTA Buttons */
+.cta-button-equal {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
+    box-sizing: border-box !important;
+}
+
+@media (min-width: 640px) {
+    .cta-button-equal {
+        width: 340px !important;
+        min-width: 340px !important;
+        max-width: 340px !important;
+        flex: 0 0 340px !important;
+    }
 }

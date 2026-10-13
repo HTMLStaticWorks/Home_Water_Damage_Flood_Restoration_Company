@@ -22,10 +22,15 @@
                         primary: {
                             50: '#f0f9ff',
                             100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
                             500: '#0ea5e9',
                             600: '#0284c7',
                             700: '#0369a1',
+                            800: '#075985',
                             900: '#0c4a6e',
+                            950: '#082f49',
                         },
                         secondary: {
                             900: '#0f172a',
@@ -55,7 +60,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=2">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
 </head>
 
@@ -83,7 +88,7 @@
                     <a href="../index.html"
                         class="px-4 py-2 text-gray-600 dark:text-gray-300 font-medium transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg hover:text-primary-600 dark:hover:text-primary-400">Home</a>
                     <a href="home-2.html"
-                        class="bg-primary-50 dark:bg-primary-900/20 text-primary-600 px-4 py-2 rounded-lg font-medium transition-colors">Home
+                        class="bg-primary-50 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 px-4 py-2 rounded-lg font-semibold transition-colors">Home
                         2</a>
                     <a href="about.html"
                         class="px-4 py-2 text-gray-600 dark:text-gray-300 font-medium transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg hover:text-primary-600 dark:hover:text-primary-400">About</a>
@@ -126,21 +131,13 @@
         <div id="mobileMenu"
             class="hidden xl:hidden bg-white dark:bg-secondary-900 border-t border-gray-100 dark:border-gray-800 absolute w-full">
             <div class="px-4 pt-2 pb-6 space-y-1 shadow-xl">
-                <a href="../index.html"
-                    class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
-                <a href="home-2.html"
-                    class="block px-3 py-3 text-primary-600 font-medium bg-primary-50 dark:bg-primary-900/20 rounded-lg">Home
-                    2</a>
-                <a href="about.html"
-                    class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
-                <a href="services.html"
-                    class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
-                <a href="insurance.html"
-                    class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Insurance</a>
-                <a href="contact.html"
-                    class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
-                <a href="dashboard.html"
-                    class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Dashboard</a>
+                <a href="../index.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+                <a href="home-2.html" class="block px-3 py-3 text-primary-600 dark:text-primary-400 font-semibold bg-primary-50 dark:bg-primary-900/40 rounded-lg">Home 2</a>
+                <a href="about.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">About</a>
+                <a href="services.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+                <a href="insurance.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Insurance</a>
+                <a href="contact.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+                <a href="dashboard.html" class="block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">Dashboard</a>
 
                 <!-- Mobile Utility Row: Theme + RTL + Login -->
                 <div class="border-t border-gray-100 dark:border-gray-800 mt-2 pt-3">
@@ -606,14 +603,18 @@
 
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
                     <a href="tel:18005550199"
-                        class="w-full sm:w-auto bg-white text-primary-600 hover:bg-gray-100 px-8 py-5 rounded-xl font-bold text-xl transition-all shadow-xl flex items-center justify-center gap-3 group">
-                        <div class="bg-primary-100 p-2 rounded-lg group-hover:scale-110 transition-transform"><i
-                                class="fa-solid fa-phone-volume"></i></div>
-                        Call Emergency Hotline
+                        class="cta-button-equal bg-white text-primary-600 hover:bg-gray-100 rounded-xl font-bold text-lg sm:text-xl transition-all shadow-xl flex items-center justify-center gap-3 group">
+                        <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center text-primary-600 group-hover:scale-110 transition-transform shrink-0">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <span>Call Emergency Hotline</span>
                     </a>
                     <a href="contact.html"
-                        class="w-full sm:w-auto bg-primary-800 text-white hover:bg-primary-900 border border-primary-500 px-8 py-5 rounded-xl font-bold text-xl transition-all shadow-xl">
-                        Request Restoration
+                        class="cta-button-equal bg-primary-800 text-white hover:bg-primary-900 border border-primary-500 rounded-xl font-bold text-lg sm:text-xl transition-all shadow-xl flex items-center justify-center gap-3 group">
+                        <div class="w-10 h-10 rounded-lg bg-primary-700/80 flex items-center justify-center text-white group-hover:scale-110 transition-transform shrink-0">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <span>Request Restoration</span>
                     </a>
                 </div>
 

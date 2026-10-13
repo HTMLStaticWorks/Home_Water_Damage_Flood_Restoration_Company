@@ -40,7 +40,7 @@ for fpath in files:
             active = False
             
         if active:
-            cls = 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 px-4 py-2 rounded-lg font-medium transition-colors'
+            cls = 'bg-primary-50 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 px-4 py-2 rounded-lg font-semibold transition-colors'
         else:
             cls = 'px-4 py-2 text-gray-600 dark:text-gray-300 font-medium transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg hover:text-primary-600 dark:hover:text-primary-400'
         
@@ -51,7 +51,7 @@ for fpath in files:
     mobile_nav = ''
     for label, url in items:
         if url.endswith(fname):
-            cls = 'block px-3 py-3 text-primary-600 font-medium bg-primary-50 dark:bg-primary-900/20 rounded-lg'
+            cls = 'block px-3 py-3 text-primary-600 dark:text-primary-400 font-semibold bg-primary-50 dark:bg-primary-900/40 rounded-lg'
         else:
             cls = 'block px-3 py-3 text-gray-600 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800'
         mobile_nav += f'                <a href="{url}" class="{cls}">{label}</a>\n'

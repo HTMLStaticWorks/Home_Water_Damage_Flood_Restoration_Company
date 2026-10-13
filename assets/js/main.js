@@ -7,9 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('themeToggle');
     const htmlElement = document.documentElement;
     
-    // Check local storage for theme preference
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    // Check URL param or local storage for theme preference
+    if (window.location.search.includes('theme=dark') || localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         htmlElement.classList.add('dark');
+        if (window.location.search.includes('theme=dark')) localStorage.setItem('color-theme', 'dark');
+    } else if (window.location.search.includes('theme=light')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
     } else {
         htmlElement.classList.remove('dark');
     }
@@ -138,9 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (linkPageName === pageName) {
                 if (isMobile) {
-                    link.className = 'block px-3 py-3 text-primary-600 font-medium bg-primary-50 dark:bg-primary-900/20 rounded-lg';
+                    link.className = 'block px-3 py-3 text-primary-600 dark:text-primary-400 font-semibold bg-primary-50 dark:bg-primary-900/40 rounded-lg';
                 } else {
-                    link.className = 'text-primary-600 font-medium transition-colors hover:text-primary-500';
+                    link.className = 'bg-primary-50 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 px-4 py-2 rounded-lg font-semibold transition-colors';
                 }
             } else {
                 if (isMobile) {
